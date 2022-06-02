@@ -17,8 +17,79 @@
     "@types/node": "17.0.38",
     "@types/react": "18.0.10",
     "@types/react-dom": "18.0.5",
+    "@typescript-eslint/eslint-plugin": "5.27.0",
+    "@typescript-eslint/parser": "5.27.0",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "prettier": "2.6.2",
     "typescript": "4.7.2"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
+      "next"
+    ],
+    "plugins": [
+      "@typescript-eslint",
+      "prettier",
+      "import"
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "ignorePatterns": [
+      "node_modules",
+      "*.test.ts",
+      "dist"
+    ],
+    "rules": {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_"
+        }
+      ],
+      "import/order": [
+        "error",
+        {
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": false
+          },
+          "newlines-between": "always",
+          "groups": [
+            [
+              "builtin",
+              "external"
+            ],
+            [
+              "internal",
+              "parent",
+              "sibling",
+              "index"
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "all",
+    "singleQuote": false,
+    "printWidth": 120,
+    "tabWidth": 2
   }
 }
