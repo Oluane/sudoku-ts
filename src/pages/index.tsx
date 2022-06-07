@@ -1,7 +1,14 @@
 import type { NextPage } from "next";
 
-const Home: NextPage = () => {
-  return <div>Sudoku</div>;
+import Layout from "../components/Layout";
+import Home from "../components/pages/Home";
+
+const HomePage: NextPage = () => {
+  return (
+    <Layout>
+      <Home />
+    </Layout>
+  );
 };
 
-export default Home;
+export default HomePage;
