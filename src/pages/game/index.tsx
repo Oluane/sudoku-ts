@@ -1,20 +1,14 @@
 import type { NextPage } from "next";
 
 import { GridCell } from "../../@types/common";
-import Layout from "../../components/Layout";
+import GameGrid from "../../components/GameGrid";
 import { generateStartingGrid, fillGrid } from "../../utils/generating-grid";
 
 const GamePage: NextPage<{ filledValidGrid: GridCell[] }> = ({ filledValidGrid }) => {
   return (
-    <Layout>
-      {filledValidGrid.map((cell, index) => {
-        return (
-          <span key={index}>
-            {cell.value ? cell.value : "undefined"} {(index + 1) % 9 === 0 ? <br /> : null}
-          </span>
-        );
-      })}
-    </Layout>
+    <div className="w-2/3 mx-auto py-4">
+      <GameGrid generatedGrid={filledValidGrid} />
+    </div>
   );
 };
 
